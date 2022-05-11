@@ -1,0 +1,2 @@
+# -ReDim-
+$sExclude; Lines with certain strings should be excluded $sExclude = "===*|---*|shader*|material*| *" $sExclude = StringReplace($sExclude, ".", "\.") $sExclude = StringReplace($sExclude, "?", ".") $sExclude = StringReplace($sExclude, "*", ".*?")  ; Remove all lines  $iIndex = 1 For $i = 0 To UBound($matArray) - 1     If Not StringRegExp($matArray[$i], $sExclude) Then         $matArray[$iIndex] = $matArray[$i]         $iIndex += 1     EndIf Next ReDim $matArray[$iIndex]
